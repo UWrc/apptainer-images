@@ -26,14 +26,14 @@ From: centos:7.6.1810
   rm -v R-${R_VERSION}-1-1.x86_64.rpm
 
   yum install -y \
+    libcurl-devel \
+    libxml2-devel
     #make \
     #gcc \
     #gcc-c++ \
-    libcurl-devel \
-    libxml2-devel \
     #java-1.7.0-openjdk-devel \
     #openssl-devel \
-    #texlive-*
+    #texlive-* \
 
   yum clean all
 
