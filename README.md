@@ -1,2 +1,3 @@
-# singularity-recipies-supported
-Will house recipes for Singularity images maintained by the UW Hyak team.
+# singularity-images
+
+Each software has a unique folder in this repository. Each version of that software gets its own subfolder.
