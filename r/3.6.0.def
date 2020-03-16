@@ -2,7 +2,7 @@ BootStrap: docker
 From: ubuntu:16.04
 
 %labels
-  Maintainer Nam Pho (npho@uw.edu)
+  Maintainer Nam Pho
   R_Version 3.6.0
 
 %apprun R
