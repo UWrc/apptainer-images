@@ -1,0 +1,16 @@
+Bootstrap: docker
+From: rocker/rstudio:4.3.3
+
+%post
+	apt-get update && \
+	apt-get install -y libxml2 && \
+	apt-get install -y libxt6 && \
+	apt-get install -y zlib1g-dev && \
+	apt-get install -y libbz2-dev && \
+	apt-get install -y liblzma-dev && \
+	apt-get install -y libpcre3-dev && \
+	apt-get install -y libicu-dev && \
+	apt-get install -y libjpeg-dev && \
+	apt-get install -y libpng-dev && \
+	apt-get install -y libxml2-dev && \
+	apt-get install -y libglpk-dev

@@ -1,0 +1,47 @@
+Bootstrap: docker
+From: centos:7.5.1804
+
+
+%labels
+    Original Developer: Tashrif Billah <tbillah@bwh.harvard.edu>
+    Original Organization: PNL-BWH-HMS
+    Version 2 Developer: Kristen Finch <finchkn@uw.edu>
+    Vresion 2 Organization: Univeristy of Washington HYAK
+
+%help
+    Singularity recipe for FSL and FSLeyes
+
+
+%post
+    # set up user and working directory
+
+    cd /
+
+
+    # libraries and commands for FSL
+
+    yum -y update
+    # git added to install list KF
+    yum -y install epel-release wget file bzip2 openblas-devel which libmng libpng12 libSM gtk2 mesa-dri-drivers git
+
+    # install FSL with ca.certificates fix from github
+    git clone https://github.com/finchnSNPs/hyak-fsl.git
+    python hyak-fsl/fslinstaller.py -d `pwd`/fsl-centos7
+
+    # install FSL from FSL wiki
+    # wget https://fsl.fmrib.ox.ac.uk/fsldownloads/fslinstaller.py -O fslinstaller.py
+    # python fslinstaller.py -d `pwd`/fsl-centos7
+
+    # setup FSL environment
+
+    export FSLDIR=/fsl-centos7
+    # export PATH=$FSLDIR/bin/:$PATH
+    # source $FSLDIR/etc/fslconf/fsl.sh
+
+%environment
+    
+    export FSLDIR=/fsl-centos7
+    export PATH=$FSLDIR/bin/:$PATH
+    source $FSLDIR/etc/fslconf/fsl.sh
+
+
